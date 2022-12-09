@@ -15,16 +15,16 @@ Simultaneously the scanner will have access to the data, deniying or accepting t
 Used for party invites or any kind of invites. 
 
 ## Tech Stack
-Frontend - Flutter
-Backend - Firebase / Appwrite
+* Frontend - Flutter
+* Backend - Firebase / Appwrite
 
 ## Contributions
 Contribute to this project with your skill set. Since we started very recently, this app is in it's basic phase with most of things un-done. Steps to contribute:
 
-*Create an issue on what you plan to add or show intent of contribution to an existing un-assigned issue.
-*Follow the discussion on the issue with other contributors
-*Clone and develop.
-*Test and Push the changes.
+* Create an issue on what you plan to add or show intent of contribution to an existing un-assigned issue.
+* Follow the discussion on the issue with other contributors
+* Clone and develop.
+* Test and Push the changes.
 We also look forward to develop viteED for ios and web. Contributions and suggestions are highly welcomed.
 
 ## Feedbacks
