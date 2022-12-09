@@ -1,15 +1,19 @@
 # Flutter QR
-Version 1:
+**Version 1:**
+
 A basic app where you can generate a QR with customized file name.
 
-Version 2:
+**Version 2:**
+
 Generate a QR with various customiuzation options. 
 options - forecolor, background color, embeddd text, design of the qr, etc
 
-Version 3:
+**Version 3:**
+
 Add a simple scanner to the app that will retrieve the information from the Qr.
 
-Version 4: 
+**Version 4:** 
+
 Add a feature to auto generate QR from a csv file imported to the app and store the QR using Firebase or Appwrite.
 Simultaneously the scanner will have access to the data, deniying or accepting the data on scanning the QR. 
 Used for party invites or any kind of invites. 
