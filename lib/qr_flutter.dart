@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-
 class QrFlutter extends StatefulWidget {
   const QrFlutter({super.key});
 
@@ -10,13 +9,13 @@ class QrFlutter extends StatefulWidget {
 }
 
 class _QrFlutterState extends State<QrFlutter> {
-final controller = TextEditingController();
+  final controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        title: const Text("Scanner"),
+        title: const Text("QR Analyzer"),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -63,8 +62,3 @@ final controller = TextEditingController();
                 ))),
       );
 }
-
-
-
-
-

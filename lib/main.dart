@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:scanner/decoration.dart';
-import 'package:scanner/generator.dart';
+import 'package:qr_analyzer/decoration.dart';
+import 'package:qr_analyzer/generator.dart';
 
 // import 'package:qrcode_example/qr_provider.dart';
 void main() {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Qr Generator',
+      title: 'Qr Analyzer',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
