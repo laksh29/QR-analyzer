@@ -6,7 +6,12 @@ A basic app where you can generate a QR with customized file name.
 **Version 2:**
 
 Generate a QR with various customiuzation options. 
-options - forecolor, background color, embeddd text, design of the qr, etc
+
+options - 
+1. forecolor
+2. background color
+3. embeddd text
+4. design of the qr
 
 **Version 3:**
 
