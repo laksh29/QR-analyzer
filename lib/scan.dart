@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:flutter_device_type/flutter_device_type.dart';
 
@@ -12,10 +10,12 @@ class QrScanner extends StatefulWidget {
 }
 
 class _QrScannerState extends State<QrScanner> {
+  // initializing
   Barcode? result;
   QRViewController? controller;
   final qrKey = GlobalKey(debugLabel: 'QR');
 
+// controller
   void _onQRViewCreated(QRViewController controller) {
     setState(() => this.controller = controller);
     controller.scannedDataStream.listen((scanData) {
@@ -23,17 +23,18 @@ class _QrScannerState extends State<QrScanner> {
     });
   }
 
-  // @override
-  // void reassemble() {
-  //   super.reassemble();
+  @override
+  void reassemble() {
+    super.reassemble();
 
-  //   if (Device.get().isAndroid) {
-  //     controller!.resumeCamera();
-  //   } else if (Device.get().isIos) {
-  //     controller!.resumeCamera();
-  //   }
-  // }
+    if (Device.get().isAndroid) {
+      controller!.pauseCamera();
+    } else if (Device.get().isIos) {
+      controller!.resumeCamera();
+    }
+  }
 
+// reading qr
   void readQr() async {
     if (result != null) {
       controller!.pauseCamera();
@@ -47,6 +48,7 @@ class _QrScannerState extends State<QrScanner> {
     readQr();
     return Scaffold(
       body: Stack(children: [
+        // qr view
         QRView(
           key: qrKey,
           onQRViewCreated: _onQRViewCreated,
@@ -58,23 +60,16 @@ class _QrScannerState extends State<QrScanner> {
               cutOutSize: MediaQuery.of(context).size.width * 0.8),
         ),
         Positioned(
-            bottom: 50,
-            // right: 50,
-            child: Container(
-              height: 50,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.red,
-              child: Center(child: Text(result!.code.toString())),
-            )),
-        // Positioned(
-        //     bottom: 200,
-        //     right: MediaQuery.of(context).size.width / 2.5,
-        //     child: ElevatedButton(
-        //       onPressed: () {
-        //         setState(() {});
-        //       },
-        //       child: const Text("Scan Again!"),
-        //     ))
+            bottom: 200,
+            right: 140,
+            child: ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  controller!.resumeCamera();
+                });
+              },
+              child: const Text("Scan Again !"),
+            ))
       ]),
     );
   }
