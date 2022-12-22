@@ -9,7 +9,6 @@ import 'package:image_gallery_saver/image_gallery_saver.dart';
 
 class Generator extends StatefulWidget {
   const Generator({super.key});
-
   @override
   State<Generator> createState() => _GeneratorState();
 }
@@ -39,17 +38,19 @@ class _GeneratorState extends State<Generator>
 
   void changeColor(Color color) {
     setState(() {
-      colorPicker = color;
+      // colorPicker = color;
     });
   }
 
 // scaffold
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       // appbar
       appBar: AppBar(
-        title: const Text("Qr Generator"),
+        title: const Text("QR Analyzer"),
         elevation: 0,
         backgroundColor: Colors.cyan,
       ),
@@ -59,27 +60,29 @@ class _GeneratorState extends State<Generator>
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text("Width $width x Height $height"),
               // color Picker
               // buildColorPicker(),
-              buildSizedHeight(50.0),
+              buildSizedHeight(width / 7.68),
               // generate QR
               buildQr(controller.text, colorPicker),
-              buildSizedHeight(10.0),
+              buildSizedHeight(width / 38.4),
               // Customise QR
-              SizedBox(
-                height: 40,
-                width: 115,
-                child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/customize');
-                    },
-                    child: buildText("Customize QR")),
-              ),
-              buildSizedHeight(30.0),
+              // SizedBox(
+              //   height: width / 9.6,
+              //   width: width / 3.33,
+              //   child: ElevatedButton(
+              //       onPressed: () {
+              //         Navigator.pushNamed(context, '/customize');
+              //       },
+              //       child: buildText("Customize QR", width / 38.4)),
+              // ),
+              buildSizedHeight(width / 12.8),
               // Input Text Box
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                width: 400,
+                margin: EdgeInsets.symmetric(
+                    horizontal: width / 32, vertical: width / 64.0),
+                width: width / 0.96,
                 child: TextField(
                   controller: controller,
                   decoration: InputDecoration(
@@ -91,7 +94,7 @@ class _GeneratorState extends State<Generator>
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(
-                        color: Theme.of(context).accentColor,
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
                     ),
                   ),
@@ -99,8 +102,9 @@ class _GeneratorState extends State<Generator>
               ),
               // save file name input
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                width: 400,
+                margin: EdgeInsets.symmetric(
+                    horizontal: width / 32.0, vertical: width / 64),
+                width: width / 0.96,
                 child: TextField(
                   controller: saveController,
                   decoration: InputDecoration(
@@ -112,44 +116,49 @@ class _GeneratorState extends State<Generator>
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(
-                        color: Theme.of(context).accentColor,
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
                     ),
                   ),
                 ),
               ),
-              buildSizedHeight(20.0),
+              buildSizedHeight(width / 19.2),
               // buttons
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // generate qr button
                   SizedBox(
-                    height: 50,
-                    width: 120,
+                    height: width / 7.68,
+                    width: width / 3.2,
                     child: ElevatedButton(
                         onPressed: () {
                           setState(() {});
                         },
-                        child: buildText("Generate QR")),
+                        child: buildText("Generate QR", width / 32)),
                   ),
-                  const SizedBox(width: 20),
+                  SizedBox(width: width / 19.2),
                   // save qr button
                   SizedBox(
-                      height: 50,
-                      width: 120,
+                      height: width / 7.68,
+                      width: width / 3.2,
                       child: ElevatedButton(
                           onPressed: () async {
                             final image =
                                 await shotController.captureFromWidget(
                                     buildQr(controller.text, colorPicker),
                                     pixelRatio: 20);
-                            if (image == null) return;
-                            await saveImage(image);
+                            saveImage(image);
+                            const snackBar = SnackBar(
+                              content: Text('Image Saved'),
+                            );
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
                           },
-                          child: buildText("Save QR")))
+                          child: buildText("Save QR", width / 32))),
                 ],
               ),
+              
             ],
           )
         ],
@@ -238,10 +247,11 @@ class _GeneratorState extends State<Generator>
     );
   }
 
-  Text buildText(word) {
+  Text buildText(word, fontSize) {
     return Text(
       "$word",
-      style: GoogleFonts.poppins(),
+      style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: fontSize)),
+      // textAlign: TextAlign.center,
     );
   }
 
@@ -252,12 +262,10 @@ class _GeneratorState extends State<Generator>
 
   Future saveImage(Uint8List image) async {
     await [Permission.storage].request();
-    // final time = DateTime.now();
-    // // .replaceAll('.', "_")
-    // // .replaceAll(":", "_");
-    // final name = 'Scanner_$time';
     final result =
         await ImageGallerySaver.saveImage(image, name: saveController.text);
     return result['filePath'];
   }
+
+  
 }

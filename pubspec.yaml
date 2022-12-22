@@ -40,6 +40,9 @@ dependencies:
   screenshot: ^1.2.3
   permission_handler:
   image_gallery_saver:
+  firebase_core: ^2.4.0
+  qr_code_scanner: ^1.0.1
+  flutter_device_type: ^0.4.0
 
 
 dev_dependencies:
