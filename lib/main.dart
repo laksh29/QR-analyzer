@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       // home: const Generator(),
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const QrScanner(),
+        '/': (context) => const Scanner(),
       },
     );
   }

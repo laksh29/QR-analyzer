@@ -1,0 +1,11 @@
+List firebase = [
+  {
+    "web":" 1:1021339625916:web:eb3a562d3e2f5643fca3b9",
+    "android":"1:1021339625916:android:dced9c934d36b096fca3b9",
+    "ios":"1:1021339625916:ios:107445e592c5a8f3fca3b9"
+  }
+];
+
+Resources:
+text link - "https://androidride.com/flutter-hyperlink-text/#:~:text=Flutter%20Hyperlink%20Text%20Using%20RichText%20And%20url_launcher&text=Using%20RichText%2C%20we%20can%20make,we%20can%20open%20the%20urls."
+qr scan - "https://itnext.io/qr-code-in-flutter-9b7072343598"
