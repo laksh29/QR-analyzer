@@ -60,7 +60,7 @@ class _GeneratorState extends State<Generator>
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Width $width x Height $height"),
+              // Text("Width $width x Height $height"),
               // color Picker
               // buildColorPicker(),
               buildSizedHeight(width / 7.68),
@@ -158,7 +158,6 @@ class _GeneratorState extends State<Generator>
                           child: buildText("Save QR", width / 32))),
                 ],
               ),
-              
             ],
           )
         ],
@@ -266,6 +265,4 @@ class _GeneratorState extends State<Generator>
         await ImageGallerySaver.saveImage(image, name: saveController.text);
     return result['filePath'];
   }
-
-  
 }

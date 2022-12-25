@@ -82,7 +82,10 @@ class _ScannerState extends State<Scanner> {
                                 if (await canLaunchUrl(url)) {
                                   await launchUrl(url);
                                 } else {
-                                  TextSpan(text: result!.code);
+                                  TextSpan(
+                                      text: result!.code,
+                                      style:
+                                          const TextStyle(color: Colors.black));
                                 }
                               })
                       ]))

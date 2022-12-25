@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_analyzer/bottomNav.dart';
 import 'package:qr_analyzer/decoration.dart';
 import 'package:qr_analyzer/generator.dart';
 import 'package:qr_analyzer/scan.dart';
@@ -24,10 +25,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // home: const Generator(),
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const Scanner(),
+        '/': (context) => const BottomNav(),
       },
     );
   }
