@@ -27,7 +27,8 @@ Used for party invites or any kind of invites.
 
 ## Tech Stack
 * Frontend - Flutter
-* Backend - Firebase / Appwrite
+* Backend - Firebase
+* State Management - Riverpod
 
 ## Contributions
 Contribute to this project with your skill set. Since we started very recently, this app is in it's basic phase with most of things un-done. Steps to contribute:
