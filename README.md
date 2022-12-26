@@ -5,6 +5,11 @@ A basic app where you can generate a QR with customized file name.
 
 **Version 2:**
 
+
+Add a simple scanner to the app that will retrieve the information from the Qr.
+
+**Version 3:**
+
 Generate a QR with various customiuzation options. 
 
 options - 
@@ -13,9 +18,6 @@ options -
 3. embeddd text
 4. design of the qr
 
-**Version 3:**
-
-Add a simple scanner to the app that will retrieve the information from the Qr.
 
 **Version 4:** 
 
