@@ -44,4 +44,4 @@ Any kind of feedbacks are welcomed. Feel free to raise a new issue for your feed
 
 **~laksh.devsigner**
 
-[APK v1 (https://drive.google.com/file/d/1Dj39u94-g-hDJEeKGODyqgZQqkqihLKn/view?usp=sharing)]
+[APK v1](https://drive.google.com/file/d/1Dj39u94-g-hDJEeKGODyqgZQqkqihLKn/view?usp=sharing)
